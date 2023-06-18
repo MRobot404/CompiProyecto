@@ -30,25 +30,25 @@ espacio=[ ,\t,\r,\n]+
 ( "\"" ) {return new Symbol(sym.Comillas, yychar, yyline, yytext());}
 
 /* Tipos de datos */
-( byte | int | char | long | float | double ) {return new Symbol(sym.T_dato, yychar, yyline, yytext());}
+( entero | caracter | real | logico) {return new Symbol(sym.T_dato, yychar, yyline, yytext());}
 
 /* Tipo de dato String */
-( String ) {return new Symbol(sym.Cadena, yychar, yyline, yytext());}
+( Texto ) {return new Symbol(sym.Cadena, yychar, yyline, yytext());}
 
 /* Palabra reservada If */
-( if ) {return new Symbol(sym.If, yychar, yyline, yytext());}
+( Si ) {return new Symbol(sym.If, yychar, yyline, yytext());}
 
 /* Palabra reservada Else */
-( else ) {return new Symbol(sym.Else, yychar, yyline, yytext());}
+( SiNo ) {return new Symbol(sym.Else, yychar, yyline, yytext());}
 
 /* Palabra reservada Do */
-( do ) {return new Symbol(sym.Do, yychar, yyline, yytext());}
+( Repetir ) {return new Symbol(sym.Do, yychar, yyline, yytext());}
 
 /* Palabra reservada While */
-( while ) {return new Symbol(sym.While, yychar, yyline, yytext());}
+( Mientras ) {return new Symbol(sym.While, yychar, yyline, yytext());}
 
 /* Palabra reservada For */
-( for ) {return new Symbol(sym.For, yychar, yyline, yytext());}
+( Para ) {return new Symbol(sym.For, yychar, yyline, yytext());}
 
 /* Operador Igual */
 ( "=" ) {return new Symbol(sym.Igual, yychar, yyline, yytext());}
@@ -78,7 +78,7 @@ espacio=[ ,\t,\r,\n]+
 ( "++" | "--" ) {return new Symbol(sym.Op_incremento, yychar, yyline, yytext());}
 
 /*Operadores Booleanos*/
-( true | false ) {return new Symbol(sym.Op_booleano, yychar, yyline, yytext());}
+( verdadero | falso) {return new Symbol(sym.Op_booleano, yychar, yyline, yytext());}
 
 /* Parentesis de apertura */
 ( "(" ) {return new Symbol(sym.Parentesis_a, yychar, yyline, yytext());}
@@ -99,7 +99,7 @@ espacio=[ ,\t,\r,\n]+
 ( "]" ) {return new Symbol(sym.Corchete_c, yychar, yyline, yytext());}
 
 /* Marcador de inicio de algoritmo */
-( "main" ) {return new Symbol(sym.Main, yychar, yyline, yytext());}
+( "Algoritmo" ) {return new Symbol(sym.Main, yychar, yyline, yytext());}
 
 /* Punto y coma */
 ( ";" ) {return new Symbol(sym.P_coma, yychar, yyline, yytext());}

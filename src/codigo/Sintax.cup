@@ -20,15 +20,21 @@ terminal Linea, Comillas, T_dato, Cadena, If, Else, Do, While, For,
     Op_atribucion, Op_incremento, Op_booleano, Parentesis_a, Parentesis_c,
     Llave_a, Llave_c, Corchete_a, Corchete_c, Main, P_coma, Identificador,
     Numero, ERROR;
+
+
 non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE,
     WHILE, DO_WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR;
 
+
 start with INICIO;
+
 
 INICIO ::= 
     T_dato Main Parentesis_a Parentesis_c Llave_a SENTENCIA Llave_c |
     Main Parentesis_a Parentesis_c Llave_a SENTENCIA Llave_c
 ;
+
+
 SENTENCIA ::= 
     SENTENCIA DECLARACION |
     DECLARACION |
@@ -43,6 +49,8 @@ SENTENCIA ::=
     SENTENCIA FOR |
     FOR
 ;
+
+
 DECLARACION ::= 
     T_dato Identificador P_coma | 
     T_dato Identificador Op_atribucion Numero P_coma |
@@ -56,6 +64,8 @@ DECLARACION ::=
 ;
 IF ::= If Parentesis_a SENTENCIA_BOOLEANA Parentesis_c Llave_a SENTENCIA Llave_c
 ;
+
+
 SENTENCIA_BOOLEANA ::= 
     Op_booleano | 
     Identificador Op_relacional Op_booleano |
@@ -64,18 +74,30 @@ SENTENCIA_BOOLEANA ::=
     Identificador Op_relacional Comillas Comillas |
     Identificador Op_relacional Comillas Identificador Comillas
 ;
+
+
 IF_ELSE ::= If Parentesis_a SENTENCIA_BOOLEANA Parentesis_c Llave_a SENTENCIA Llave_c Else Llave_a SENTENCIA Llave_c
 ;
+
+
 WHILE ::= While Parentesis_a SENTENCIA_BOOLEANA Parentesis_c Llave_a SENTENCIA Llave_c
 ;
+
+
 DO_WHILE ::= Do Llave_a SENTENCIA Llave_c While Parentesis_a SENTENCIA_BOOLEANA Parentesis_c P_coma
 ;
+
+
 FOR ::= For Parentesis_a SENTENCIA_FOR Parentesis_c Llave_a SENTENCIA Llave_c
 ;
+
+
 SENTENCIA_FOR ::=
     T_dato Identificador Igual Numero P_coma SENTENCIA_BOOLEANA P_coma DECLARACION_FOR |
     Identificador Igual Numero P_coma SENTENCIA_BOOLEANA P_coma DECLARACION_FOR
 ;
+
+
 DECLARACION_FOR ::= 
     Identificador Op_atribucion Numero |
     Identificador Op_incremento | 
