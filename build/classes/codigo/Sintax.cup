@@ -19,11 +19,11 @@ terminal Linea, Comillas, T_dato, Cadena, If, Else, Do, While, For,
     Igual, Suma, Resta, Multiplicacion, Division, Op_logico, Op_relacional,
     Op_atribucion, Op_incremento, Op_booleano, Parentesis_a, Parentesis_c,
     Llave_a, Llave_c, Corchete_a, Corchete_c, Main, P_coma, Identificador,
-    Numero, ERROR;
+    Numero,Escribir, ERROR;
 
 
 non terminal INICIO, SENTENCIA, DECLARACION, DECLARACION_FOR, IF, IF_ELSE,
-    WHILE, DO_WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR;
+    WHILE, DO_WHILE, FOR, SENTENCIA_BOOLEANA, SENTENCIA_FOR, ESCRIBIR, CADENAS;
 
 
 start with INICIO;
@@ -47,9 +47,19 @@ SENTENCIA ::=
     SENTENCIA DO_WHILE
     DO_WHILE |
     SENTENCIA FOR |
-    FOR
+    FOR|
+    ESCRIBIR
 ;
 
+ESCRIBIR ::=
+    Escribir Parentesis_a Comillas CADENAS Comillas Parentesis_c P_coma
+    |Escribir Parentesis_a CADENAS Parentesis_c P_coma
+;
+
+CADENAS ::=
+    CADENAS Identificador
+    | Identificador
+;
 
 DECLARACION ::= 
     T_dato Identificador P_coma | 
@@ -62,6 +72,8 @@ DECLARACION ::=
     Cadena Identificador Op_atribucion Comillas Identificador Comillas P_coma |
     Cadena Identificador Igual Comillas Identificador Comillas P_coma
 ;
+
+
 IF ::= If Parentesis_a SENTENCIA_BOOLEANA Parentesis_c Llave_a SENTENCIA Llave_c
 ;
 

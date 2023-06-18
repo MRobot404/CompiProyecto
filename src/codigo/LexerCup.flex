@@ -50,6 +50,9 @@ espacio=[ ,\t,\r,\n]+
 /* Palabra reservada For */
 ( Para ) {return new Symbol(sym.For, yychar, yyline, yytext());}
 
+/* Palabra reservada Escribir */
+( Escribir ) {return new Symbol(sym.Escribir, yychar, yyline, yytext());}
+
 /* Operador Igual */
 ( "=" ) {return new Symbol(sym.Igual, yychar, yyline, yytext());}
 

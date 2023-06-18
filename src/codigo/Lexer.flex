@@ -44,6 +44,9 @@ espacio=[ ,\t,\r]+
 /* Palabra reservada For */
 ( Para ) {lexeme=yytext(); return For;}
 
+/* Palabra reservada Escribir */
+( Escribir ) {lexeme=yytext(); return Escribir;}
+
 /* Operador Igual */
 ( "=" ) {lexeme=yytext(); return Igual;}
 

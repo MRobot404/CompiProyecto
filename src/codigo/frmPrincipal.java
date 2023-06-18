@@ -133,6 +133,8 @@ public class frmPrincipal extends javax.swing.JFrame {
                 case Numero:
                     resultado += "  <Numero>\t\t" + lexer.lexeme + "\n";
                     break;
+                case Escribir:
+                    resultado += "  <Escribir>\t\t" + lexer.lexeme + "\n";
                 case ERROR:
                     resultado += "  <Simbolo no definido>\n";
                     break;
@@ -169,8 +171,8 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1190, 789));
-        setMinimumSize(new java.awt.Dimension(1190, 789));
+        setMaximumSize(new java.awt.Dimension(1200, 850));
+        setMinimumSize(new java.awt.Dimension(1200, 850));
         getContentPane().setLayout(null);
 
         jPanel2.setLayout(null);
